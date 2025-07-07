@@ -36,10 +36,10 @@ const AdminNotifications = () => {
     try {
       const token = localStorage.getItem("authToken");
       const [eventsRes, notificationsRes] = await Promise.all([
-        axios.get("http://localhost:5000/api/events", {
+        axios.get("https://flatease-backend.onrender.com/api/events", {
           headers: { Authorization: `Bearer ${token}` },
         }),
-        axios.get("http://localhost:5000/api/notifications", {
+        axios.get("https://flatease-backend.onrender.com/api/notifications", {
           headers: { Authorization: `Bearer ${token}` },
         }),
       ]);
@@ -55,8 +55,8 @@ const AdminNotifications = () => {
       const token = localStorage.getItem("authToken");
       const endpoint =
         type === "event"
-          ? "http://localhost:5000/api/events"
-          : "http://localhost:5000/api/notifications";
+          ? "https://flatease-backend.onrender.com/api/events"
+          : "https://flatease-backend.onrender.com/api/notifications";
       await axios.post(endpoint, formData, {
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -80,8 +80,8 @@ const AdminNotifications = () => {
       const token = localStorage.getItem("authToken");
       const endpoint =
         type === "event"
-          ? `http://localhost:5000/api/events/${editData.id}`
-          : `http://localhost:5000/api/notifications/${editData.id}`;
+          ? `https://flatease-backend.onrender.com/api/events/${editData.id}`
+          : `https://flatease-backend.onrender.com/api/notifications/${editData.id}`;
       await axios.put(endpoint, editData, {
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -98,8 +98,8 @@ const AdminNotifications = () => {
       const token = localStorage.getItem("authToken");
       const endpoint =
         type === "event"
-          ? `http://localhost:5000/api/events/${id}`
-          : `http://localhost:5000/api/notifications/${id}`;
+          ? `https://flatease-backend.onrender.com/api/events/${id}`
+          : `https://flatease-backend.onrender.com/api/notifications/${id}`;
       await axios.delete(endpoint, {
         headers: { Authorization: `Bearer ${token}` },
       });

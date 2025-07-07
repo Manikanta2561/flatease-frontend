@@ -23,7 +23,7 @@ const EventsPage = () => {
     const fetchData = async () => {
       try {
         const token = getAuthToken();
-        const eventsRes = await axios.get("http://localhost:5000/api/events", {
+        const eventsRes = await axios.get("https://flatease-backend.onrender.com/api/events", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setEvents(eventsRes.data);

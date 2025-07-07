@@ -191,7 +191,7 @@ const ClientComplaints = () => {
 
   const fetchComplaints = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/complaints", {
+      const response = await axios.get("https://flatease-backend.onrender.com/api/complaints", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setComplaints(response.data.complaints);
@@ -203,7 +203,7 @@ const ClientComplaints = () => {
   const handleSubmitComplaint = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/complaints", newComplaint, {
+      await axios.post("https://flatease-backend.onrender.com/api/complaints", newComplaint, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchComplaints();
@@ -222,7 +222,7 @@ const ClientComplaints = () => {
   const handleEditComplaint = async () => {
     try {
       await axios.put(
-        `http://localhost:5000/api/complaints/${selectedComplaint._id}`,
+        `https://flatease-backend.onrender.com/api/complaints/${selectedComplaint._id}`,
         editComplaint,
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -235,7 +235,7 @@ const ClientComplaints = () => {
 
   const handleDeleteComplaint = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/complaints/${id}`, {
+      await axios.delete(`https://flatease-backend.onrender.com/api/complaints/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchComplaints();
@@ -247,7 +247,7 @@ const ClientComplaints = () => {
   const handleSubmitFeedback = async () => {
     try {
       await axios.put(
-        `http://localhost:5000/api/complaints/${selectedComplaint._id}/feedback`,
+        `https://flatease-backend.onrender.com/api/complaints/${selectedComplaint._id}/feedback`,
         {
           feedback: feedback.rating,
           feedbackDescription: feedback.description,

@@ -22,7 +22,7 @@ const AdminComplaints = () => {
   const fetchComplaints = async () => {
     try {
       const token = localStorage.getItem("authToken");
-      const response = await axios.get("http://localhost:5000/api/admin/complaints", {
+      const response = await axios.get("https://flatease-backend.onrender.com/api/admin/complaints", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setComplaints(response.data.complaints);
@@ -32,7 +32,7 @@ const AdminComplaints = () => {
       for (const complaint of response.data.complaints) {
         if (complaint.status === "Resolved") {
           const feedbackResponse = await axios.get(
-            `http://localhost:5000/api/complaints/${complaint._id}/feedback`,
+            `https://flatease-backend.onrender.com/api/complaints/${complaint._id}/feedback`,
             { headers: { Authorization: `Bearer ${token}` } }
           );
           feedbackData[complaint._id] = feedbackResponse.data.rating || 0;
@@ -48,7 +48,7 @@ const AdminComplaints = () => {
     try {
       const token = localStorage.getItem("authToken");
       await axios.put(
-        `http://localhost:5000/api/complaints/${id}/status`,
+        `https://flatease-backend.onrender.com/api/complaints/${id}/status`,
         { status: newStatus },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -59,7 +59,7 @@ const AdminComplaints = () => {
       // If status is changed to "Resolved", fetch feedback
       if (newStatus === "Resolved") {
         const feedbackResponse = await axios.get(
-          `http://localhost:5000/api/complaints/${id}/feedback`,
+          `https://flatease-backend.onrender.com/api/complaints/${id}/feedback`,
           { headers: { Authorization: `Bearer ${token}` } }
         );
         setFeedback((prev) => ({ ...prev, [id]: feedbackResponse.data.rating || 0 }));
@@ -73,7 +73,7 @@ const AdminComplaints = () => {
     try {
       const token = localStorage.getItem("authToken");
       await axios.post(
-        `http://localhost:5000/api/complaints/${id}/feedback`,
+        `https://flatease-backend.onrender.com/api/complaints/${id}/feedback`,
         { rating },
         { headers: { Authorization: `Bearer ${token}` } }
       );

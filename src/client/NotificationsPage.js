@@ -13,7 +13,7 @@ const NotificationsPage = () => {
     const fetchData = async () => {
       try {
         const token = getAuthToken();
-        const notificationsRes = await axios.get("http://localhost:5000/api/notifications", {
+        const notificationsRes = await axios.get("https://flatease-backend.onrender.com/api/notifications", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setNotifications(notificationsRes.data);

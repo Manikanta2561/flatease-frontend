@@ -10,7 +10,7 @@ const AdminLogin = () => {
   const [loginError, setLoginError] = useState("");
   const [showWelcome, setShowWelcome] = useState(false);
   const navigate = useNavigate();
-  const API_BASE_URL = "http://localhost:5000/api/admin";
+  const API_BASE_URL = "https://flatease-backend.onrender.com/api/admin";
 
   const handleLogin = async (e) => {
     e.preventDefault();

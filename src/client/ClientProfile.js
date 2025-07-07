@@ -21,7 +21,7 @@
       const fetchProfile = async () => {
         const token = localStorage.getItem("authToken");
         try {
-          const response = await fetch("http://localhost:5000/api/profile", {
+          const response = await fetch("https://flatease-backend.onrender.com/api/profile", {
             method: "GET",
             headers: { Authorization: `Bearer ${token}` },
           });
@@ -44,7 +44,7 @@
       e.preventDefault();
       const token = localStorage.getItem("authToken");
       try {
-        const response = await fetch("http://localhost:5000/api/profile", {
+        const response = await fetch("https://flatease-backend.onrender.com/api/profile", {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
@@ -86,7 +86,7 @@
       }
       const token = localStorage.getItem("authToken");
       try {
-        const response = await fetch("http://localhost:5000/api/profile/password", {
+        const response = await fetch("https://flatease-backend.onrender.com/api/profile/password", {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",

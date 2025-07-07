@@ -21,7 +21,7 @@ const AdminFlats = () => {
 
   const fetchFlats = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/flats");
+      const response = await axios.get("https://flatease-backend.onrender.com/api/flats");
       setFlats(response.data);
     } catch (error) {
       console.error("Error fetching flats:", error);
@@ -32,7 +32,7 @@ const AdminFlats = () => {
   const registerTenant = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/api/register", {
+      const response = await axios.post("https://flatease-backend.onrender.com/api/register", {
         ...formData,
         flatNumber: formData.flatNumberToRegister
       });
@@ -47,7 +47,7 @@ const AdminFlats = () => {
 
   const deleteFlat = async (flatNumber) => {
     try {
-      const response = await axios.delete(`http://localhost:5000/api/flats/${flatNumber}`);
+      const response = await axios.delete(`https://flatease-backend.onrender.com/api/flats/${flatNumber}`);
       setMessage(response.data.message);
       fetchFlats();
     } catch (error) {

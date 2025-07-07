@@ -11,7 +11,7 @@ const ClientLogin = () => {
   const [loginError, setLoginError] = useState("");
   const [showWelcome, setShowWelcome] = useState(false);
   const navigate = useNavigate();
-  const API_BASE_URL = "http://localhost:5000/api/auth";
+  const API_BASE_URL = "https://flatease-backend.onrender.com/api/auth";
 
   const handleLogin = async (e) => {
     e.preventDefault();
